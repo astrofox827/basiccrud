@@ -1,0 +1,28 @@
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="employeeService.selectedEmployee.$key">
+<div class="form-group">
+  <label>Name</label>
+  <input class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Full Name" required>
+</div>
+<div class="form-group">
+  <label>Gender</label>
+  <input class="form-control" name="gender" #gender="ngModel" [(ngModel)]="employeeService.selectedEmployee.gender" placeholder="Gender">
+</div>
+<div class="form-group">
+  <label>Date of Birth</label>
+  <div class="input-group">
+      <div class="input-group-addon">
+        <i class="fa fa-birthday-cake"></i>
+      </div>
+      <input class="form-control" name="birth" #birth="ngModel" [(ngModel)]="employeeService.selectedEmployee.birth" placeholder="dd-mm-yyyy">
+  </div>
+</div>
+<div class="form-group">
+  <button class="btn btn-default" type="submit" [disabled]="!employeeForm.valid">
+    <i class="fa fa-floppy-o"></i>
+     Submit</button>
+  <button class="btn btn-default" type="button" (click)="resetForm(employeeForm)">
+    <i class="fa fa-repeat"></i>
+     Reset</button>
+</div>
+</form>
